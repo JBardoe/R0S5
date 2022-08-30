@@ -1,0 +1,88 @@
+h1 {
+    font-family: "Blippo",fantasy;
+    font-size: 500%;
+    font-weight: bold;
+}
+
+.nav{
+    background-color: #808080;
+    overflow: hidden;
+    height: 1.25%;
+    width: 100%;
+    margin: 0%;
+    justify-content: center;
+}
+.nav a{
+    float: right;
+    text-align: center;
+    
+    width:43.5%;
+    padding-top: 1.25%;
+    padding-bottom: 1.25%;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    font-size: 100%;
+}
+.nav img{
+    float: right;
+    width: 13%;
+    height:auto;
+}
+.nav a.active{
+    background-color: black;
+    color: white;
+}
+.nav a:hover{
+    background-color: white;
+    color: black;
+}
+
+.other {
+    text-align: center;
+}
+input.entry{
+    text-align: center;
+    padding: 0.75% 15% ;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 2%;
+}
+p.regLink{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+input.submit{
+    border: none;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 100%;
+    padding: 1% 1%;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 45%;
+}
+nav a.active{
+    background-color: black;
+}
+table.emp{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 5%;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+tr.head{
+    background-color: #c0c0c0;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+tr.body{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+th, td{
+    border: 1px solid black;
+    width: 50%;
+}
