@@ -3,7 +3,11 @@ h1 {
     font-size: 500%;
     font-weight: bold;
 }
-
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 300%;
+    font-weight: bold;
+}
 .nav{
     background-color: #808080;
     overflow: hidden;
@@ -15,7 +19,6 @@ h1 {
 .nav a{
     float: right;
     text-align: center;
-    
     width:43.5%;
     padding-top: 1.25%;
     padding-bottom: 1.25%;
@@ -34,7 +37,7 @@ h1 {
     color: white;
 }
 .nav a:hover{
-    background-color: white;
+    background-color: #d3d3d3;
     color: black;
 }
 
@@ -60,9 +63,8 @@ input.submit{
     padding: 1% 1%;
     font-family: 'Courier New', Courier, monospace;
     border-radius: 45%;
-}
-nav a.active{
-    background-color: black;
+    justify-content: center;
+    float: right;
 }
 table.emp{
     border: 1px solid black;
@@ -82,7 +84,44 @@ tr.body{
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
+
 th, td{
     border: 1px solid black;
     width: 50%;
+}
+.efileInfo{
+    text-align: left;
+    float: left;
+    padding: auto;
+    margin:auto;
+}
+p.efileInfo{
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 200%;
+}
+.efileTrain{
+    float: right;
+    overflow: left;
+}
+.efileTrain table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 250%;
+    margin: auto;
+    float: right;
+}
+table.avail{
+    width: 50%;
+    margin: auto;
+    padding: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.avail{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    justify-content: center;
 }
