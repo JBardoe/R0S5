@@ -8,6 +8,12 @@ h2 {
     font-size: 300%;
     font-weight: bold;
 }
+h3{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 150%;
+    position: absolute;
+    margin: 2%;
+}
 .nav{
     background-color: #808080;
     overflow: hidden;
@@ -40,7 +46,6 @@ h2 {
     background-color: #d3d3d3;
     color: black;
 }
-
 .other {
     text-align: center;
 }
@@ -64,7 +69,24 @@ input.submit{
     font-family: 'Courier New', Courier, monospace;
     border-radius: 45%;
     justify-content: center;
-    float: right;
+    float: center;
+}
+input.add{
+    border: none;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 100%;
+    padding: 1% 1%;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 45%;
+    justify-content: center;
+    margin-left: 50%;
+    margin-right: auto;
+}
+input.arrow{
+    position: absolute;
+    margin: 2%;
 }
 table.emp{
     border: 1px solid black;
@@ -103,17 +125,22 @@ p.efileInfo{
 .efileTrain{
     float: right;
     overflow: left;
+    position: right;
+    width: 50%;
 }
 .efileTrain table{
     border: 1px solid black;
     border-collapse: collapse;
-    width: 250%;
+    width: 100%;
     margin: auto;
     float: right;
 }
 table.avail{
     width: 50%;
-    margin: auto;
+    margin-top: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
     padding: auto;
     border: 1px solid black;
     border-collapse: collapse;
@@ -122,6 +149,29 @@ table.avail{
 .avail{
     text-align: center;
     width: 100%;
-    position: absolute;
+    position: static;
     justify-content: center;
+}
+.holi{
+    text-align: center;
+    width: 100%;
+    position: static;
+    justify-content: center;
+}
+table.holi{
+    width: 95%;
+    margin-top: 7.5%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    padding: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.dates{
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    position: static;
 }
