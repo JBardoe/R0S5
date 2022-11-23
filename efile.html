@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
+    <!--Metadata about the page-->
     <head>
         <title>Employee File</title>
         <link rel="stylesheet" href="styles.css">
     </head>
+    <!--Main Display-->
     <body>
+        <!--Navigation Bar-->
         <div class="nav">
             <img src="Logo.png" alt="Logo">
             <a class="active" href="elist.html">Employees</a>
             <a href="calendar">Calendar</a>
         </div>
+        <!--Title-->
         <div class="other">
         <h2>Employee Name</h2>
         </div>
+        <!--General data about the employee-->
         <div class="efileInfo">
             <p class="efileInfo">
                 Age:<br><br>
@@ -23,6 +28,7 @@
                 Hourly Rate:<br><br>
             </p>
         </div>
+        <!--Table which details the training for the employee-->
         <div class="efileTrain">
             <table>
                 <tr class="head">
@@ -32,10 +38,12 @@
                 <tr class="body">
                 </tr>
             </table>
+            <!--Button to add more rows to the table-->
             <form>
                 <br><br><input class="add" type="submit" value="+">
             </form>
         </div>
+        <!--Table which details the availability for the employee-->
         <div class="avail">
             <table class="avail">
                 <tr class="head">
@@ -66,6 +74,7 @@
                 </tr>
             </table>
         </div>
+        <!--Table which details the holiday for the employee-->
         <div class="holi">
             <table class="holi">
                 <tr class="head">
@@ -74,6 +83,7 @@
                     <th>Approved?</th>
                 </tr>
             </table>
+            <!--Button to add more rows to the table-->
             <form>
                 <br><br><input class="submit" type="submit" value="+">
             </form>

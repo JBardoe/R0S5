@@ -11,8 +11,9 @@ h2 {
 h3{
     font-family: 'Courier New', Courier, monospace;
     font-size: 150%;
-    position: absolute;
-    margin: 2%;
+    position: relative;
+    display: inline;
+    padding: 1%;
 }
 .nav{
     background-color: #808080;
@@ -85,8 +86,9 @@ input.add{
     margin-right: auto;
 }
 input.arrow{
-    position: absolute;
-    margin: 2%;
+    position: relative;
+    display: inline;
+    padding: 1%;
 }
 table.emp{
     border: 1px solid black;
@@ -174,4 +176,19 @@ table.holi{
     width: 100%;
     text-align: center;
     position: static;
+}
+.row{
+    justify-content: left;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+table.hours{
+    display: inline;
+    width: 100%;
+    padding: auto;
+    margin: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
