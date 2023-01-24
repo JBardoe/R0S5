@@ -1,0 +1,89 @@
+{% extends "base.html" %} {% block title %}Employee File{% endblock %}
+
+{% block content %}
+    <div class="nav">
+        <img src="../static/images/Logo.png" alt="Logo">
+        <a href="elist.html">Employees</a>
+        <a href="calendar.html">Calendar</a>
+    </div>
+    <div class="other">
+    <h2 contenteditable="true"></h2>
+    </div>
+    <div class="efileInfo">
+        <p class="efileInfo" contenteditable="true">
+            Age: <br><br>
+            DOB: <br><br>
+            Max Hours per Week: <br><br>
+            Employee Number: <br><br>
+            Holiday Remaining: <br><br>
+            Hourly Rate: <br><br>
+        </p>
+    </div>
+    <div class="efileTrain">
+        <table contenteditable="true">
+            <tr class="head">
+                <th>Role</th>
+                <th>Qualified?</th>
+            </tr>
+        </table>
+        <form>
+            <br><br><input class="add" type="submit" value="+">
+        </form>
+    </div>
+    <div class="avail">
+        <table class="avail" contenteditable="true">
+            <tr class="head" contenteditable="false">
+                <th>Day</th>
+                <th>Availability Start</th>
+                <th>Availability End</th>
+            </tr>
+            <tr class="body">
+                <td>Mon</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="body">
+                <td>Tues</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="body">
+                <td>Wed</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="body">
+                <td>Thurs</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="body">
+                <td>Fri</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="body">
+                <td>Sat</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="body">
+                <td>Sun</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="holi">
+        <table class="holi" contenteditable="true">
+            <tr class="head" contenteditable="false">
+                <th>Holiday Start Date</th>
+                <th>Holiday End Date</th>
+                <th>Approved?</th>
+            </tr>
+        </table>
+        <form method="POST" name="add">
+            <br><br><input class="submit" type="submit" value="+">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Employee List{% endblock %}
+
+{% block content %}
+    <div class="nav">
+        <img src="../static/images/Logo.png" alt="Logo">
+        <a class="active" href="elist.html">Employees</a>
+        <a href="calendar.html">Calendar</a>
+    </div>
+    <div class="other">
+        <table class="emp" contenteditable="true">
+            <tr class="head" contenteditable="false">
+                <th>Employee Name</th>
+                <th>Role</th>
+            </tr>
+            {% for i in range(employees | length) %}
+                <tr class="body" contenteditable="false">
+                    <td>{% print(employees[i][0]) %}</td>
+                    <td>{% print(employees[i][1]) %}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <form method="POST" name="add">
+            <br><input class="submit" type="submit" value="+">
+        </form>
+    </div>
+{% endblock %}

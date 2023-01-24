@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %}Calendar{% endblock %}
+
+{% block content %}
+    <div class="nav">
+        <img src="../static/images/Logo.png" alt="Logo">
+        <a href="elist.html">Employees</a>
+        <a class="active" href="calendar.html">Calendar</a>
+    </div>
+    <div class="dates">
+        <input type="image" class="arrow" src="../static/images/arrowLeft.png" alt="Previous" width="120" height="40">
+        <h3>2/1/23-12/3/23</h3>
+        <input type="image" class="arrow" src="../static/images/arrowRight.png" alt="Next" width="120" height="40">
+    </div>
+    <div class="row">
+        <table class="weeks" contenteditable="true">
+            <tr class="head" contenteditable="false">
+                <th><a style="color: black; text-decoration: none;" href="wplanner.html">Week:2/1/23</a></th>
+                <th>Week:9/1/23</th>
+                <th>Week:16/1/23</th>
+                <th>Week:23/1/23</th>
+                <th>Week:30/1/23</th>
+            </tr>
+            <tr class="body">
+                <td>Mon: Completed<br>Tues: Completed<br>Wed: Completed<br>Thurs: Completed<br>Fri: Completed<br>Sat: Completed<br>Sun: Completed</td>
+                <td>Mon: Completed<br>Tues: Completed<br>Wed: Completed<br>Thurs: Completed<br>Fri: Completed<br>Sat: Completed<br>Sun: Completed</td>
+                <td>Mon: Completed<br>Tues: Completed<br>Wed: Completed<br>Thurs: Completed<br>Fri: Completed<br>Sat: Completed<br>Sun: Completed</td>
+                <td>Mon: Completed<br>Tues: Completed<br>Wed: Completed<br>Thurs: Completed<br>Fri: Completed<br>Sat: Completed<br>Sun: Completed</td>
+                <td>Mon: Completed<br>Tues: Completed<br>Wed: Incomplete<br>Thurs: Incomplete<br>Fri: Incomplete<br>Sat: Incomplete<br>Sun: Incomplete</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

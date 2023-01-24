@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %}Register{% endblock %}
+
+{% block content %}
+    <div class="nav">
+        <img src="../static/images/Logo.png" alt="Logo">
+    </div>
+    <div class="other">
+        <h1>Register</h1>
+    </div>
+    <div class="other">
+        <p class="regLink">If you already have an account login <a href="/">here</a></p>
+    </div>
+    <div class="other">
+        <form method="POST">
+            <input class="entry" type="email" placeholder="Email" name="email"><br>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {% if category == 'error' %}
+                            <p class="reject">{% print(message) %}</p><br>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <input class="entry" type="password" placeholder="Password" name="password"><br>
+            <input class="entry" type="text" placeholder="First Name" name="fname"><br>
+            <input class="entry" type="text" placeholder="Last Name" name="lname"><br>
+            <input class="entry" type="text" placeholder="Company Name" name="cname"><br>
+            <input class="submit" type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}

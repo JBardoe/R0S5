@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week Planner</title>
+        <link rel="stylesheet" href="../static/styles.css">
+    </head>
+    <body class="page">
+        <div class="emploverlay">
+            <div class="plate"><p class="plateText">Alexander Stewart<br><br>Max Hours: 40<br><br>Current Hours: 24<br><br>Next Holiday: 14/3/23</p></div>
+            <div class="plate"><p class="plateText">Angela Hughes<br><br>Max Hours:46<br><br>Current Hours: 25<br><br>Next Holiday: 15/4/23</p></div>
+            <div class="plate"><p class="plateText">Bethany Barry<br><br>Max Hours:40<br><br>Current Hours: 32<br><br>Next Holiday: N/A</p></div>
+            <div class="plate"><p class="plateText">Elizabeth Chan<br><br>Max Hours:36<br><br>Current Hours: 32<br><br>Next Holiday: 19/3/23</p></div>
+            <div class="plate"><p class="plateText">Mohammed Carroll<br><br>Max Hours:40<br><br>Current Hours: 24<br><br>Next Holiday: 24/5/23</p></div>
+        </div>
+        <div class="nav">
+            <img src="../static/images/Logo.png" alt="Logo">
+            <a href="elist.html">Employees</a>
+            <a href="calendar.html">Calendar</a>
+        </div>
+        <div class="scroll">
+            <input type="image" class="arrow" src="../static/images/arrowLeft.png" alt="Previous" width="120" height="40">
+            <h3>2/1/23-8/1/23</h3>
+            <input type="image" class="arrow" src="../static/images/arrowRight.png" alt="Next" width="120" height="40">
+        </div>
+        <div class="weekplan">
+            <table class="weeks" contenteditable="true">
+                <tr class="head">
+                    <th>Mon</th>
+                    <th>Tues</th>
+                    <th>Wed</th>
+                    <th>Thurs</th>
+                </tr>
+                <tr class="emplist">
+                    <td class="emplist">Angela Hughes<br>Mohammed Carroll<br>Bethany Barry</td>
+                    <td class="emplist">Alexander Stewart<br>Elizabeth Chan</td>
+                    <td class="emplist">Mohammed Carroll<br>Elizabeth Chan</td>
+                    <td class="emplist">Angela Hughes<br>Bethany Barry<br>Alexander Stewart</td>
+                </tr>
+            </table>
+            <table class="second" contenteditable="true">
+                <tr class="head">
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                </tr>
+                <tr class="emplist">
+                    <td class="emplist">Elizabeth Chan<br>Bethany Barry</td>
+                    <td class="emplist">Mohammed Carroll<br>Elizabeth Chan<br>Angela Hughes</td>
+                    <td class="emplist">Alexander Stewart<br>Bethany Barry</td>
+                </tr>
+            </table>
+        </div>
+        <div class="calc">
+            <p class="calculate">Labour Cost: £722<br><br>Hours Worked Total: 76</p>
+        </div>
+    </body>
+</html>
