@@ -341,3 +341,13 @@ input.newEmp{
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
+input.newEmpAdd{
+    text-align: center;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+input.empClick{
+    background-color: white;
+    border: white;
+    font-family: 'Courier New', Courier, monospace;
+}

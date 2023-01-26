@@ -7,24 +7,24 @@
         <a href="calendar.html">Calendar</a>
     </div>
     <div class="other">
-        <form method="POST">
-            <table class="emp" contenteditable="false">
-                <tr class="head" contenteditable="false">
-                    <th>Employee Name</th>
-                    <th>Role</th>
+        <table class="emp" contenteditable="false">
+            <tr class="head" contenteditable="false">
+                <th>Employee Name</th>
+                <th>Role</th>
+            </tr>
+            {% for i in range(employees | length) %}
+                <tr class="body" contenteditable="false">
+                    <td>{% print(employees[i][0]) %}</td>
+                    <td>{% print(employees[i][1]) %}</td>
                 </tr>
-                {% for i in range(employees | length) %}
-                    <tr class="body" contenteditable="false">
-                        <td>{% print(employees[i][0]) %}</td>
-                        <td>{% print(employees[i][1]) %}</td>
-                    </tr>
-                {% endfor %}
+            {% endfor %}
+            <form method="POST">
                 <tr class="body">
                     <td><input class="newEmp" type="text" name="empName"></td>
-                    <td><input class="newEmp" type="text" name="empRole"></td>
+                    <td><input class="newEmp" type="text" name="empRole"> <input class="newEmpAdd" type="submit" value="Add"></td>
                 </tr>
-            </table>
-            <br><input class="submit" type="submit" value="+">
-        </form>
+            </form>
+        </table>
+        <br><input class="submit" type="submit" value="+">
     </div>
 {% endblock %}

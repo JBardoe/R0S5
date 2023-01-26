@@ -14,8 +14,10 @@
             </tr>
             {% for i in range(employees | length) %}
                 <tr class="body" contenteditable="false">
-                    <td>{% print(employees[i][0]) %}</td>
-                    <td>{% print(employees[i][1]) %}</td>
+                    <form method="POST">
+                        <td><input class="empClick" type="submit" name="emp" value="{% print(employees[i][0]) %}"></td>
+                        <td>{% print(employees[i][1]) %}</td>
+                    </form>
                 </tr>
             {% endfor %}
         </table>
