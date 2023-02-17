@@ -1,57 +1,60 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Week Planner</title>
-        <link rel="stylesheet" href="../static/styles.css">
-    </head>
-    <body class="page">
-        <div class="emploverlay">
-            <div class="plate"><p class="plateText">Alexander Stewart<br><br>Max Hours: 40<br><br>Current Hours: 24<br><br>Next Holiday: 14/3/23</p></div>
-            <div class="plate"><p class="plateText">Angela Hughes<br><br>Max Hours:46<br><br>Current Hours: 25<br><br>Next Holiday: 15/4/23</p></div>
-            <div class="plate"><p class="plateText">Bethany Barry<br><br>Max Hours:40<br><br>Current Hours: 32<br><br>Next Holiday: N/A</p></div>
-            <div class="plate"><p class="plateText">Elizabeth Chan<br><br>Max Hours:36<br><br>Current Hours: 32<br><br>Next Holiday: 19/3/23</p></div>
-            <div class="plate"><p class="plateText">Mohammed Carroll<br><br>Max Hours:40<br><br>Current Hours: 24<br><br>Next Holiday: 24/5/23</p></div>
-        </div>
-        <div class="nav">
-            <img src="../static/images/Logo.png" alt="Logo">
-            <a href="elist.html">Employees</a>
-            <a href="calendar.html">Calendar</a>
-        </div>
-        <div class="scroll">
-            <input type="image" class="arrow" src="../static/images/arrowLeft.png" alt="Previous" width="120" height="40">
-            <h3>2/1/23-8/1/23</h3>
-            <input type="image" class="arrow" src="../static/images/arrowRight.png" alt="Next" width="120" height="40">
-        </div>
-        <div class="weekplan">
-            <table class="weeks" contenteditable="true">
-                <tr class="head">
-                    <th>Mon</th>
-                    <th>Tues</th>
-                    <th>Wed</th>
-                    <th>Thurs</th>
-                </tr>
-                <tr class="emplist">
-                    <td class="emplist">Angela Hughes<br>Mohammed Carroll<br>Bethany Barry</td>
-                    <td class="emplist">Alexander Stewart<br>Elizabeth Chan</td>
-                    <td class="emplist">Mohammed Carroll<br>Elizabeth Chan</td>
-                    <td class="emplist">Angela Hughes<br>Bethany Barry<br>Alexander Stewart</td>
-                </tr>
-            </table>
-            <table class="second" contenteditable="true">
-                <tr class="head">
-                    <th>Fri</th>
-                    <th>Sat</th>
-                    <th>Sun</th>
-                </tr>
-                <tr class="emplist">
-                    <td class="emplist">Elizabeth Chan<br>Bethany Barry</td>
-                    <td class="emplist">Mohammed Carroll<br>Elizabeth Chan<br>Angela Hughes</td>
-                    <td class="emplist">Alexander Stewart<br>Bethany Barry</td>
-                </tr>
-            </table>
-        </div>
-        <div class="calc">
-            <p class="calculate">Labour Cost: £722<br><br>Hours Worked Total: 76</p>
-        </div>
-    </body>
-</html>
+{% extends "base.html" %} {% block title %}Week Planner: Employees{% endblock %}
+
+{% block content %}
+    <div class="emploverlay">
+        {% for i in range(overlay|length) %}
+        <div class="plate"><p class="plateText">{% print(overlay[i][0]) %}<br><br>Max Hours: {% print(overlay[i][1]) %}<br><br>Current Hours: {% print(overlay[i][2]) %}<br><br>Next Holiday: {% print(overlay[i][3]) %}</p></div>
+        {% endfor %}
+    </div>
+    <div class="nav" style="width: 80%;">
+        <img src="../static/images/Logo.png" alt="Logo">
+        <a href="/employeelist">Employees</a>
+        <a href="/weekscalendar">Calendar</a>
+    </div>
+    <div class="dates">
+        <form method="POST">
+        <button class="arrowButtons" name="previous" value="previous" formmethod="POST">
+            <img class="arrows" src="../static/images/arrowLeft.png" alt="Previous" width="120" height="40">
+        </button>
+        <h3>{% print(days[0][0]|string+"/"+days[0][1]|string+"/"+days[0][2]|string+"-"+days[6][0]|string+"/"+days[6][1]|string+"/"+days[6][2]|string) %}</h3>
+        <button class="arrowButtons" name="next" value="next" formmethod="POST">
+            <img class="arrows" src="../static/images/arrowRight.png" alt="Next" width="120" height="40">
+        </button>
+        </form>
+    </div>
+    <div class="weekplanOver">
+        <table class="weeks">
+            <tr class="head">
+                <form method="POST">
+                    <th><input class="weekDirect" id="dayPlan" type="submit" name="dayPlan" value="Mon"></th>
+                    <th><input class="weekDirect" id="dayPlan" type="submit" name="dayPlan" value="Tues"></th>
+                    <th><input class="weekDirect" id="dayPlan" type="submit" name="dayPlan" value="Wed"></th>
+                    <th><input class="weekDirect" id="dayPlan" type="submit" name="dayPlan" value="Thurs"></th>
+                </form>
+            </tr>
+            <tr class="emplist" contenteditable="true">
+                {% for i in range(4) %}
+                <td class="emplist">{% for j in range(employees[i] | length) %} {% print(employees[i][j]) %}<br> {% endfor %}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table class="second">
+            <tr class="head">
+                <form method="POST"></form>
+                    <th><input class="weekDirect" id="dayPlan" type="submit" name="dayPlan" value="Fri"></th>
+                    <th><input class="weekDirect" id="dayPlan" type="submit" name="dayPlan" value="Sat"></th>
+                    <th><input class="weekDirect" id="dayPlan" type="submit" name="dayPlan" value="Sun"></th>
+                </form>
+            </tr>
+            <tr class="emplist"contenteditable="true">
+                {% for k in range(4,7) %}
+                <td class="emplist">{% for l in range(employees[k] | length) %} {% print(employees[k][l]) %}<br> {% endfor %}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+    <div class="calc" style="width: 79%;">
+        <p class="error">{% if issue!=None %}{% print(issue) %}{% endif %}</p>
+        <p class="calculate">Labour Cost: £{% print(cost) %}<br><br>Hours Worked Total: {% print(hours) %}</p>
+    </div>
+{% endblock %}

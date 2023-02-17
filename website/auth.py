@@ -1,9 +1,11 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import user
+from .database import readUsers
 
 def getLogins():
+    #readUsers()
     logins=[]
-    file1=open("C:/Users/arron/OneDrive/Documents/GitHub/IA-Website/website/information/logins.csv","r")
+    file1=open("website/information/logins.csv","r")
     for line in file1:
         data=line.strip().split(",")
         logins.append([data[0],data[1]])
@@ -35,7 +37,7 @@ def login():
         if not flag:
             flash("Incorrect username or password. Please try again.", category='error')
         else:
-            return redirect(url_for('auth.login'))
+            return redirect(url_for('calendar.weeksCalendar'))
     return render_template("login.html")
 
 

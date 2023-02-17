@@ -235,7 +235,7 @@ input.overlay{
     height: fit-content;
     width: fit-content;
 }
-.scroll{
+.browse{
     justify-content: center;
     position: static;
     display: inline;
@@ -350,4 +350,57 @@ input.empClick{
     background-color: white;
     border: white;
     font-family: 'Courier New', Courier, monospace;
+}
+input.infoButton{
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 100%;
+    background-color: white;
+    border: none;
+    width: fit-content;
+}
+input.editing{
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 100%;
+    background-color: white;
+    border: none;
+    width: 20%;
+}
+img.arrows{
+    background-color: white;
+    border-color: white;
+}
+button.arrowButtons{
+    background-color: white;
+    border-color: white;
+    box-shadow: none;
+    border: 0;
+}
+input.weekDirect{
+    background-color: #c0c0c0;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: 0;
+    font-size: 100%;
+}
+input.addName{
+    color: black;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    border: white;
+}
+input.addRole{
+    color: black;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    border: white;
+    background-color: #c0c0c0;
+    font-weight: bold;
+}
+.weekplanOver{
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    overflow: auto;
 }

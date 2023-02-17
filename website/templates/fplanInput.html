@@ -34,7 +34,20 @@
             </table>
         {% endfor %}
         <form method="POST">
-            <br><input class="submit" name="add" id="add" type="submit" value="+">
+        <table class="hours">
+            <tr class="head">
+                <th colspan="2"><input class="addRole" type="text" name="role"></th>
+            </tr>
+            <tr class="body">
+                <td>Crew Member</td>
+                <td>Shift Hours</td>
+            </tr>
+            <tr class="body">
+                <td><input class="addName" type="text" name="name"></td>
+                <td><input class="addName" type="text" name="hours"></td>
+            </tr>
+        </table>
+        <input class="submit" type="submit" value="Add Role">
         </form>
    </div>
 {% endblock %}

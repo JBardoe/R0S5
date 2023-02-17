@@ -1,0 +1,19 @@
+name,Elizabeth Chan
+age,24
+DOB,10/10/1998
+maxHours,40
+empNum,2402090
+remainingHoliday,4
+rate,9.5
+Fry Cook,Yes
+Drink Preparation,Yes
+Grill Cook,In Training
+endOfTraining
+Mon,8:00,22:00
+Tues,8:00,22:00
+Wed,8:00,22:00
+Thurs,8:00,22:00
+Fri,8:00,23:00
+Sat,8:00,22:00
+Sun,8:00,20:00
+endOfAvailability

@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% block title %}{{ employee.name }}{% endblock %}
+
+{% block content %}
+    <div class="nav">
+        <img src="../static/images/Logo.png" alt="Logo">
+        <a href="/employeelist">Employees</a>
+        <a href="/weekscalendar">Calendar</a>
+    </div>
+    <div class="other">
+    <h2>{{ employee.name }}</h2>
+    </div>
+    <form method="POST">
+    <div class="efileInfo">
+        <p class="efileInfo">
+            Age: <input class="editing" type="text" name="age"><br><br>
+            DOB: <input class="editing" type="text" name="dob"><br><br>
+            Max Hours per Week: <input class="editing" type="text" name="hrs"><br><br>
+            Employee Number: <input class="editing" type="text" name="num"><br><br>
+            Holiday Remaining: <input class="editing" type="text" name="hol"><br><br>
+            Hourly Rate: £<input class="editing" type="text" name="rat"><br><br>
+        </p>
+    </div>
+    <div class="efileTrain">
+        <table>
+            <tr class="head">
+                <th>Role</th>
+                <th>Qualified?</th>
+            </tr>
+            {% for i in range(employee.training | length) %}
+            <tr class="body">
+                <td>{% print(employee.training[i][0]) %}</td>
+                <td>{% print(employee.training[i][1]) %}</td>
+            </tr>
+            {% endfor %}
+            <tr class="body">
+                <td><input class="newEmp" type="text" name="trainRole"></td>
+                <td><input class="newEmp" type="text" name="trainQual"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="avail">
+        <table class="avail">
+            <tr class="head">
+                <th>Day</th>
+                <th>Availability Start</th>
+                <th>Availability End</th>
+            </tr>
+            {% for i in range(7) %}
+            <tr class="body">
+                <td>{% print(employee.availability[i][0]) %}</td>
+                <td>{% print(employee.availability[i][1]) %}</td>
+                <td>{% print(employee.availability[i][2]) %}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="holi">
+        <table class="holi">
+            <tr class="head">
+                <th>Holiday Start Date</th>
+                <th>Holiday End Date</th>
+                <th>Approved?</th>
+            </tr>
+            {% for i in range(employee.holiday | length) %}
+            <tr class="body">
+                <td>{% print(employee.holiday[i][0]) %}</td>
+                <td>{% print(employee.holiday[i][1]) %}</td>
+                <td>{% print(employee.holiday[i][2]) %}</td>
+            </tr>
+            {% endfor %}
+            <tr class="body">
+                <td><input class="newEmp" type="text" name="holiStart"></td>
+                <td><input class="newEmp" type="text" name="holiEnd"></td>
+                <td><input class="newEmp" type="text" name="holiApp"></td>
+            </tr>
+        </table>
+        <input class="submit" type="submit" value="Change Information">
+    </div>
+    </form>
+{% endblock %}

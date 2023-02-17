@@ -1,86 +1,73 @@
-{% extends "base.html" %} {% block title %}Employee File{% endblock %}
+{% extends "base.html" %} {% block title %}{{ employee.name }}{% endblock %}
 
 {% block content %}
     <div class="nav">
         <img src="../static/images/Logo.png" alt="Logo">
-        <a href="elist.html">Employees</a>
-        <a href="calendar.html">Calendar</a>
+        <a href="/employeelist">Employees</a>
+        <a href="/weekscalendar">Calendar</a>
     </div>
     <div class="other">
-    <h2 contenteditable="true"></h2>
+    <h2>{{ employee.name }}</h2>
     </div>
     <div class="efileInfo">
-        <p class="efileInfo" contenteditable="true">
-            Age: <br><br>
-            DOB: <br><br>
-            Max Hours per Week: <br><br>
-            Employee Number: <br><br>
-            Holiday Remaining: <br><br>
-            Hourly Rate: <br><br>
-        </p>
+        <form method="POST">
+            <p class="efileInfo">
+                <input class="infoButton" type="submit" value="Age: {{ employee.age }}"><br><br>
+                <input class="infoButton" type="submit" value="DOB: {{ employee.dob }}"><br><br>
+                <input class="infoButton" type="submit" value="Max Hours per Week: {{ employee.maxHours }}"><br><br>
+                <input class="infoButton" type="submit" value="Employee Number: {{ employee.empNum }}"><br><br>
+                <input class="infoButton" type="submit" value="Holiday Remaining: {{ employee.remainingHoliday }}"><br><br>
+                <input class="infoButton" type="submit" value="Hourly Rate: £{{ employee.rate }}"><br><br>
+            </p>
+        </form>
     </div>
     <div class="efileTrain">
-        <table contenteditable="true">
+        <table>
             <tr class="head">
                 <th>Role</th>
                 <th>Qualified?</th>
             </tr>
+            {% for i in range(employee.training | length) %}
+            <tr class="body">
+                <td>{% print(employee.training[i][0]) %}</td>
+                <td>{% print(employee.training[i][1]) %}</td>
+            </tr>
+            {% endfor %}
         </table>
-        <form>
+        <form method="POST">
             <br><br><input class="add" type="submit" value="+">
         </form>
     </div>
     <div class="avail">
-        <table class="avail" contenteditable="true">
-            <tr class="head" contenteditable="false">
+        <table class="avail">
+            <tr class="head">
                 <th>Day</th>
                 <th>Availability Start</th>
                 <th>Availability End</th>
             </tr>
+            {% for j in range(7) %}
             <tr class="body">
-                <td>Mon</td>
-                <td></td>
-                <td></td>
+                <td>{% print(employee.availability[j][0]) %}</td>
+                <td>{% print(employee.availability[j][1]) %}</td>
+                <td>{% print(employee.availability[j][2]) %}</td>
             </tr>
-            <tr class="body">
-                <td>Tues</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="body">
-                <td>Wed</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="body">
-                <td>Thurs</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="body">
-                <td>Fri</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="body">
-                <td>Sat</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="body">
-                <td>Sun</td>
-                <td></td>
-                <td></td>
-            </tr>
+            {% endfor %}
         </table>
     </div>
     <div class="holi">
-        <table class="holi" contenteditable="true">
-            <tr class="head" contenteditable="false">
+        <table class="holi">
+            <tr class="head">
                 <th>Holiday Start Date</th>
                 <th>Holiday End Date</th>
                 <th>Approved?</th>
             </tr>
+            {% for t in range(employee.holiday | length) %}
+            <tr class="body">
+                <td>{% print(employee.holiday[t][0]) %}</td>
+                <td>{% print(employee.holiday[t][1]) %}</td>
+                <td>{% print(employee.holiday[t][2]) %}</td>
+            </tr>
+            {% endfor %}
         </table>
         <form method="POST" name="add">
             <br><br><input class="submit" type="submit" value="+">

@@ -3,29 +3,51 @@
 {% block content %}
     <div class="nav">
         <img src="../static/images/Logo.png" alt="Logo">
-        <a href="elist.html">Employees</a>
-        <a class="active" href="calendar.html">Calendar</a>
+        <a href="/employeelist">Employees</a>
+        <a class="active" href="/weekscalendar">Calendar</a>
     </div>
     <div class="dates">
-        <input type="image" class="arrow" src="../static/images/arrowLeft.png" alt="Previous" width="120" height="40">
-        <h3>2/1/23-12/3/23</h3>
-        <input type="image" class="arrow" src="../static/images/arrowRight.png" alt="Next" width="120" height="40">
+        <form method="POST">
+            <button class="arrowButtons" name="previous" value="previous" formmethod="POST">
+                <img class="arrows" src="../static/images/arrowLeft.png" alt="Previous" width="120" height="40">
+            </button>
+            <h3>{% print(weeks[0][0]|string+"/"+weeks[0][1]|string+"/"+weeks[0][2]|string+"-"+weeks[9][0]|string+"/"+weeks[9][1]|string+"/"+weeks[9][2]|string) %}</h3>
+            <button class="arrowButtons" name="next" value="next" formmethod="POST">
+                <img class="arrows" src="../static/images/arrowRight.png" alt="Next" width="120" height="40">
+            </button>
+        </form>
     </div>
     <div class="row">
-        <table class="weeks" contenteditable="true">
-            <tr class="head" contenteditable="false">
-                <th><a style="color: black; text-decoration: none;" href="wplanner.html">Week:2/1/23</a></th>
-                <th>Week:9/1/23</th>
-                <th>Week:16/1/23</th>
-                <th>Week:23/1/23</th>
-                <th>Week:30/1/23</th>
+        <table class="weeks">
+            <tr class="head">
+                {% for i in range(5) %}
+                    <form method="POST">
+                        <th>Week:<input class="weekDirect" id="weekPlan" type="submit" name="weekPlan" value="{% print(weeks[i][0]|string+'/'+weeks[i][1]|string+'/'+weeks[i][2]|string) %}"></th>
+                    </form>
+                {% endfor %}
             </tr>
             <tr class="body">
-                <td>Mon: Completed<br>Tues: Completed<br>Wed: Completed<br>Thurs: Completed<br>Fri: Completed<br>Sat: Completed<br>Sun: Completed</td>
-                <td>Mon: Completed<br>Tues: Completed<br>Wed: Completed<br>Thurs: Completed<br>Fri: Completed<br>Sat: Completed<br>Sun: Completed</td>
-                <td>Mon: Completed<br>Tues: Completed<br>Wed: Completed<br>Thurs: Completed<br>Fri: Completed<br>Sat: Completed<br>Sun: Completed</td>
-                <td>Mon: Completed<br>Tues: Completed<br>Wed: Completed<br>Thurs: Completed<br>Fri: Completed<br>Sat: Completed<br>Sun: Completed</td>
-                <td>Mon: Completed<br>Tues: Completed<br>Wed: Incomplete<br>Thurs: Incomplete<br>Fri: Incomplete<br>Sat: Incomplete<br>Sun: Incomplete</td>
+                <td>Mon: {% print(existing[0]) %}<br>Tues: {% print(existing[1]) %}<br>Wed: {% print(existing[2]) %}<br>Thurs: {% print(existing[3]) %}<br>Fri: {% print(existing[4]) %}<br>Sat: {% print(existing[5]) %}<br>Sun: {% print(existing[6]) %}</td>
+                <td>Mon: {% print(existing[7]) %}<br>Tues: {% print(existing[8]) %}<br>Wed: {% print(existing[9]) %}<br>Thurs: {% print(existing[10]) %}<br>Fri: {% print(existing[11]) %}<br>Sat: {% print(existing[12]) %}<br>Sun: {% print(existing[13]) %}</td>
+                <td>Mon: {% print(existing[14]) %}<br>Tues: {% print(existing[15]) %}<br>Wed: {% print(existing[16]) %}<br>Thurs: {% print(existing[17]) %}<br>Fri: {% print(existing[18]) %}<br>Sat: {% print(existing[19]) %}<br>Sun: {% print(existing[20]) %}</td>
+                <td>Mon: {% print(existing[21]) %}<br>Tues: {% print(existing[22]) %}<br>Wed: {% print(existing[23]) %}<br>Thurs: {% print(existing[24]) %}<br>Fri: {% print(existing[25]) %}<br>Sat: {% print(existing[26]) %}<br>Sun: {% print(existing[27]) %}</td>
+                <td>Mon: {% print(existing[28]) %}<br>Tues: {% print(existing[29]) %}<br>Wed: {% print(existing[30]) %}<br>Thurs: {% print(existing[31]) %}<br>Fri: {% print(existing[32]) %}<br>Sat: {% print(existing[33]) %}<br>Sun: {% print(existing[34]) %}</td>
+            </tr>
+        </table>
+        <table class="weeks">
+            <tr class="head">
+                {% for i in range(5,10) %}
+                <form method="POST">
+                    <th>Week:<input class="weekDirect" id="weekPlan" type="submit" name="weekPlan" value="{% print(weeks[i][0]|string+'/'+weeks[i][1]|string+'/'+weeks[i][2]|string) %}"></th>
+                </form>
+                {% endfor %}
+            </tr>
+            <tr class="body">
+                <td>Mon: {% print(existing[35]) %}<br>Tues: {% print(existing[36]) %}<br>Wed: {% print(existing[37]) %}<br>Thurs: {% print(existing[38]) %}<br>Fri: {% print(existing[39]) %}<br>Sat: {% print(existing[40]) %}<br>Sun: {% print(existing[41]) %}</td>
+                <td>Mon: {% print(existing[42]) %}<br>Tues: {% print(existing[43]) %}<br>Wed: {% print(existing[44]) %}<br>Thurs: {% print(existing[45]) %}<br>Fri: {% print(existing[46]) %}<br>Sat: {% print(existing[47]) %}<br>Sun: {% print(existing[48]) %}</td>
+                <td>Mon: {% print(existing[49]) %}<br>Tues: {% print(existing[50]) %}<br>Wed: {% print(existing[51]) %}<br>Thurs: {% print(existing[52]) %}<br>Fri: {% print(existing[53]) %}<br>Sat: {% print(existing[54]) %}<br>Sun: {% print(existing[55]) %}</td>
+                <td>Mon: {% print(existing[56]) %}<br>Tues: {% print(existing[57]) %}<br>Wed: {% print(existing[58]) %}<br>Thurs: {% print(existing[59]) %}<br>Fri: {% print(existing[60]) %}<br>Sat: {% print(existing[61]) %}<br>Sun: {% print(existing[62]) %}</td>
+                <td>Mon: {% print(existing[63]) %}<br>Tues: {% print(existing[64]) %}<br>Wed: {% print(existing[65]) %}<br>Thurs: {% print(existing[66]) %}<br>Fri: {% print(existing[67]) %}<br>Sat: {% print(existing[68]) %}<br>Sun: {% print(existing[69]) %}</td>
             </tr>
         </table>
     </div>

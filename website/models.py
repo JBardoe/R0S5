@@ -1,13 +1,6 @@
 from pymongo import MongoClient
 import pymongo
-
-def readLogins():
-    client1= pymongo.MongoClient("mongodb+srv://jackbardoe:of1vlO7rOLG7bfEs@r0s5.hxkyr5l.mongodb.net/?retryWrites=true&w=majority")
-    database1=client1["Users"]
-    collection1=database1["Details"]
-
-    client1.close()
-
+from .database import addUser, changeEmp
 
 class user:
     email=""
@@ -24,11 +17,8 @@ class user:
         self.cname=cname
 
     def add(self):
-        client1= pymongo.MongoClient("mongodb+srv://jackbardoe:of1vlO7rOLG7bfEs@r0s5.hxkyr5l.mongodb.net/?retryWrites=true&w=majority")
-        database1=client1["Users"]
-        collection1=database1["Details"]
-
-        pass #add db functionality
+        #addUser(self)
+        pass
 
 class employ:
     name=""
@@ -43,56 +33,72 @@ class employ:
     holiday=[]
 
     def info(self, name):
-        tempName=name
-        for i in range(1,len(tempName)+1):
-            if tempName[i-1:i] == " ":
-                tempName[i-1:i] = "_"
-                break
-        file1=open(tempName+".txt","r")
+        self.training=[]
+        self.availability=[]
+        self.holiday=[]
+        tempName=""
+        for i in range(0,len(name)):
+            if name[i] == " ":
+                tempName = tempName + "_"
+            else:
+                tempName = tempName + name[i]
+        file1=open("website/information/"+tempName+".txt","r")
         j=0
         temp=[]
         for line in file1:
             if j==7:
                 break
-            data=line.strip().split(":")
+            data=line.strip().split(",")
             temp.append(data[1])
             j+=1
         self.name=temp[0]
         self.age=int(temp[1])
         self.dob=temp[2]
-        self.maxHours=int(temp[3])
+        self.maxHours=temp[3]
         self.empNum=temp[4]
-        self.remainingHoliday=int(temp[5])
+        self.remainingHoliday=float(temp[5])
         self.rate=float(temp[6])
-        t=0
+
         for line in file1:
-            if t<7:
-                t+=1
-                continue
-            data=line.strip.split(",")
+            data=line.strip().split(",")
             if data[0] =="endOfTraining":
-                break
+               break
             self.training.append([data[0],data[1]])
-        p=0
+    
         for line in file1:
-            if p<t:
-                p+=1
-                continue
             data=line.strip().split(",")
             if data[0] == "endOfAvailability":
                 break
             self.availability.append([data[0],data[1],data[2]])
-        l=0
+
         for line in file1:
-            if l<p:
-                l+=1
-                continue
-            data=line.strip.split(",")
+            data=line.strip().split(",")
             self.holiday.append([data[0],data[1],data[2]])
         file1.close()
 
     def __init__(self, name):
         self.name=name
         self.info(name)
-    
-    
+
+    def change(self):
+        tempName=""
+        for i in range(0,len(self.name)):
+            if self.name[i] == " ":
+                tempName = tempName + "_"
+            else:
+                tempName = tempName + self.name[i]
+        file1=open("website/information/"+tempName+".txt","w")
+        file1.write("")
+        file1.close()
+        file1=open("website/information/"+tempName+".txt","a")
+        file1.write("name,"+self.name+"\nage,"+str(self.age)+"\nDOB,"+self.dob+"\nmaxHours,"+self.maxHours+"\nempNum,"+self.empNum+"\nremainingHoliday,"+str(self.remainingHoliday)+"\nrate,"+str(self.rate)+"\n")
+        for j in range(len(self.training)):
+            file1.write(self.training[j][0]+","+self.training[j][1]+"\n")
+        file1.write("endOfTraining\n")
+        for t in range(len(self.availability)):
+            file1.write(self.availability[t][0]+","+self.availability[t][1]+","+self.availability[t][2]+"\n")
+        file1.write("endOfAvailability\n")
+        for k in range(len(self.holiday)-1):
+            file1.write(self.holiday[k][0]+","+self.holiday[k][1]+","+self.holiday[k][2]+"\n")
+        file1.close()
+        #changeEmp(self)
